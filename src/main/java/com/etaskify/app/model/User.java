@@ -13,6 +13,8 @@ import java.util.Set;
 @Table(name = "\"user\"")
 public class User implements Serializable {
 
+    private static final long serialVersionUID = 1764058306182376802L;
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

@@ -3,8 +3,8 @@ package com.etaskify.app.model;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-@Getter
 @AllArgsConstructor
+@Getter
 public enum TaskStatus {
     DELETED(0),
     TO_DO (1),

@@ -1,5 +1,5 @@
 package com.etaskify.app.model;
 
-public enum RoleType {
+public enum RoleName {
     USER, ADMIN
 }
