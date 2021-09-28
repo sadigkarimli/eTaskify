@@ -6,6 +6,7 @@ import com.etaskify.app.mapper.UserMapper;
 import com.etaskify.app.model.Role;
 import com.etaskify.app.model.RoleName;
 import com.etaskify.app.model.User;
+import com.etaskify.app.repository.RoleRepository;
 import com.etaskify.app.repository.UserRepository;
 import com.etaskify.app.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -19,14 +20,15 @@ import java.util.Set;
 public class UserServiceImpl implements UserService {
 
     private final UserRepository userRepository;
+    private final RoleRepository roleRepository;
     private final UserMapper userMapper;
 
     @Override
-    public UserSummaryResponse createUser(UserAddRequest userAddRequest) {
+    public UserSummaryResponse addUser(UserAddRequest userAddRequest) {
         User user = userMapper.toUser(userAddRequest);
 
         Set<Role> roles = new HashSet<>();
-        roles.add(Role.fromName(RoleName.USER));
+        roles.add(roleRepository.getRoleByRoleName(RoleName.USER));
 
         user.setRoles(roles);
         return null;

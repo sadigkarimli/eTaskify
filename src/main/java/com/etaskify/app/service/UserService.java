@@ -4,5 +4,5 @@ import com.etaskify.app.dto.UserAddRequest;
 import com.etaskify.app.dto.UserSummaryResponse;
 
 public interface UserService {
-    UserSummaryResponse createUser(UserAddRequest userAddRequest);
+    UserSummaryResponse addUser(UserAddRequest userAddRequest);
 }
