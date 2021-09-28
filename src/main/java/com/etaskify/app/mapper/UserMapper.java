@@ -1,17 +1,13 @@
 package com.etaskify.app.mapper;
 
 import com.etaskify.app.dto.SignUpRequest;
+import com.etaskify.app.dto.UserAddRequest;
 import com.etaskify.app.dto.UserResponse;
-import com.etaskify.app.model.Role;
+import com.etaskify.app.dto.UserSummaryResponse;
 import com.etaskify.app.model.User;
-import org.mapstruct.Context;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
-import org.mapstruct.Named;
 import org.mapstruct.factory.Mappers;
-
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Mapper(config = CentralConfig.class,
         uses = {OrganizationMapper.class, RoleMapper.class})
@@ -27,5 +23,13 @@ public interface UserMapper {
 
     @Mapping(target = "organizationDetails", source = "organization")
     @Mapping(target = "roles", qualifiedByName = {"mapToRoleSet"})
-    UserResponse toUserResponse(User user);
+    UserSummaryResponse toUserSummaryResponse(User user);
+
+
+    @Mapping(target = "id", ignore = true)
+    @Mapping(target = "password", source = "defaultPassword")
+    @Mapping(target = "organization", ignore = true)
+    @Mapping(target = "tasks", ignore = true)
+    @Mapping(target = "roles", ignore = true)
+    User toUser(UserAddRequest userAddRequest);
 }

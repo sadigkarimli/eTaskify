@@ -1,6 +1,7 @@
 package com.etaskify.app.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import io.swagger.v3.oas.annotations.Hidden;
 import lombok.Data;
 import lombok.experimental.Accessors;
 
@@ -26,6 +27,6 @@ public class SignUpRequest implements Serializable {
     private String password;
 
     @NotNull
-    @JsonProperty("organization")
+    @JsonProperty("org")
     private OrganizationSignUpDetails organization;
 }

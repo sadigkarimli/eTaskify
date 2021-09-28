@@ -1,24 +1,40 @@
 package com.etaskify.app.controller;
 
-import com.etaskify.app.dto.UserResponse;
+import com.etaskify.app.dto.UserAddRequest;
+import com.etaskify.app.dto.UserSummaryResponse;
 import com.etaskify.app.service.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.extern.java.Log;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/users")
+import javax.validation.Valid;
+
+
+@Log
 @RequiredArgsConstructor
+@RestController
+@Tag(name = "Users")
+@RequestMapping("/users")
 public class UserController {
 
-//    private final UserService userService;
+    private final UserService userService;
 
+    @Operation(summary = "Get current user profile details", tags = {"Users"})
     @GetMapping("/me")
-    public UserResponse getProfile() {
+    public UserSummaryResponse getProfile() {
         return null;
     }
 
+    @Operation(summary = "Add a user to the organization", tags = {"Users"})
+    @PostMapping("/")
+    public ResponseEntity<UserSummaryResponse> createUser(
+            @Valid @RequestBody UserAddRequest userAddRequest
+    ) {
+        return null;
+    }
 
 }

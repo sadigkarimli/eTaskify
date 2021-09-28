@@ -1,16 +1,16 @@
 package com.etaskify.app.dto;
 
+import com.etaskify.app.model.RoleName;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Data;
 
 import java.io.Serializable;
-import java.util.List;
 import java.util.Set;
 
 @Data
-public class UserResponse implements Serializable {
+public class UserSummaryResponse implements Serializable {
 
-    private static final long serialVersionUID = 9154236907991232549L;
+    private static final long serialVersionUID = -8111829699048509978L;
 
     private Long id;
 
@@ -20,5 +20,6 @@ public class UserResponse implements Serializable {
 
     private Set<String> roles;
 
-    private List<TaskResponse> tasks;
+    @JsonProperty("org")
+    private UserOrganizationDetails organizationDetails;
 }

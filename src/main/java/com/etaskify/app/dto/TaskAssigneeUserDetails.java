@@ -1,9 +1,9 @@
 package com.etaskify.app.dto;
 
-import io.swagger.v3.oas.annotations.Hidden;
 import lombok.Data;
 
 import java.io.Serializable;
+import java.util.Set;
 
 @Data
 public class TaskAssigneeUserDetails implements Serializable {
@@ -15,4 +15,6 @@ public class TaskAssigneeUserDetails implements Serializable {
     private String name;
 
     private String email;
+
+    private Set<Long> userTaskIds;
 }
