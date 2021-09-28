@@ -1,7 +1,9 @@
 package com.etaskify.app.model;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.NaturalId;
 
 import javax.persistence.*;
@@ -10,8 +12,8 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Data
-@NoArgsConstructor
 @Entity
+@NoArgsConstructor
 @Table(name = "role")
 public class Role implements Serializable {
 
@@ -28,4 +30,15 @@ public class Role implements Serializable {
 
     @ManyToMany(mappedBy = "roles", fetch = FetchType.LAZY)
     private Set<User> users = new HashSet<>();
+
+    public Role(RoleName roleName) {
+        this.roleName = roleName;
+    }
+
+    public static Role fromName(RoleName name) {
+        if (name == null) {
+            return null;
+        }
+        return new Role(name);
+    }
 }

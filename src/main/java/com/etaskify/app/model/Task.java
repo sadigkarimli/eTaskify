@@ -27,7 +27,10 @@ public class Task implements Serializable {
 
     private TaskStatus status;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     private Organization organization;
 
     @ManyToMany(mappedBy = "tasks")

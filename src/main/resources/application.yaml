@@ -1,7 +1,18 @@
+api:
+  name: eTaskify Rest API
+  version: v1.0
+
+server:
+  port: 8081
+  error:
+    whitelabel:
+      enabled: false
+    include-stacktrace: never
+
 spring:
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQL9Dialect

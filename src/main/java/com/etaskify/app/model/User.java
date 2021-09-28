@@ -38,7 +38,10 @@ public class User implements Serializable {
     )
     private Set<Role> roles = new HashSet<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     private Organization organization;
 
     @ManyToMany(cascade = {
