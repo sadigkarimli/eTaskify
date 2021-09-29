@@ -33,4 +33,9 @@ public class UserServiceImpl implements UserService {
         user.setRoles(roles);
         return null;
     }
+
+    @Override
+    public Set<String> getUserEmails(Set<Long> userIds) {
+        return null;
+    }
 }

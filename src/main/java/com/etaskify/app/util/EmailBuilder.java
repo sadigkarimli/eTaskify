@@ -18,7 +18,7 @@ public class EmailBuilder {
 
         return Email.builder()
                 .sendTo(sendTo)
-                .subject(String.format(TASK_ASSIGNED_MAIL_BODY, task.getId()))
+                .subject(String.format(TASK_ASSIGNED_MAIL_SUBJECT, task.getId()))
                 .body(String.format(TASK_ASSIGNED_MAIL_BODY, task.getTitle()))
                 .build();
     }
